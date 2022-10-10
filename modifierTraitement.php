@@ -10,9 +10,6 @@ catch (Exception $e){
     die();
 }
 
-echo $_POST['title'];
-echo $_POST['id'];
-
 $sql = "UPDATE film SET titre = :titre, duree = :duree, description = :description, dateSortie= :dateSortie WHERE film.id = :id";
 $stmt = $cnx->prepare($sql);
 $stmt->bindValue(":id", $_POST['id'], PDO::PARAM_INT);
