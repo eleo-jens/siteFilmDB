@@ -7,10 +7,10 @@ include "./connexion/db.php";
 // Obtenur les données du formulaire
 $nom = $_POST['nom'];
 $login = $_POST['login'];
-// $login = filter_input(INPUT_POST, $_POST['login'], FILTER_VALIDATE_EMAIL);
-// if (!$login){
+$login = filter_input (INPUT_POST, 'login', FILTER_VALIDATE_EMAIL);
+// if(!$login){
 //     //header()...
-//     //die()...
+//     die();
 // }
 
 $password = $_POST['password'];

@@ -1,5 +1,18 @@
 <?php
 
+//debug
+// var_dump ($_POST);
+// var_dump ($_FILES);
+
+// gestion de l'image
+$uploads = "./img";
+$idUnique = uniqid().date("Y-m-d-H-i-s");
+$nomFichier = $idUnique.basename($_FILES['image']['name']);
+
+if(!move_uploaded_file($_FILES['image']['tmp_name'], $uploads. "/" .$nomFichier)){
+        throw new Exception("Problème d'upload");
+}
+
 // 1. Créer une connexion à la BD
 include "./connexion/db.php";
 
@@ -41,7 +54,7 @@ $stmt->bindValue (":titre", $_POST['title']);
 $stmt->bindValue (":duree", $_POST['duration'], PDO::PARAM_INT); // ajout d'un parametre pour intégrer le type
 $stmt->bindValue (":description", $_POST['description']);
 $stmt->bindValue (":dateSortie", $_POST['dateSortie']);
-$stmt->bindValue (":image", "");
+$stmt->bindValue (":image", $nomFichier);
 
 $stmt->execute();
 // var_dump($stmt->errorInfo()); //array pour afficher les erreurs

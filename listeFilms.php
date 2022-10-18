@@ -26,13 +26,14 @@ $arrayRes = $stmt->fetchAll(PDO::FETCH_ASSOC);
 // var_dump ($arrayRes);
 
 // 5. Afficher los données selon nos besoins
+// faire une fonction afficherCard();
 foreach ($arrayRes as $film) {
-        echo "<br>";
-        foreach ($film as $cle => $val) {
-                echo $cle . " : " . $val . "<br>";
-        }
-        echo "<a href ='./index.php?p=modifierFilm&id=" . $film['id']. "'>Modifier</a><br>";
-        echo "<a href ='./effacerFilm.php?id=" . $film['id']. "'>Effacer</a><br>";
+       echo '<div class="card" style="width: 13rem;">';
+       echo '<a href="./detailFilm.php?id='. $film['id'] .'"><img class="card-img-top" src="./img/'. $film['image'] .'" alt="' . $film['titre']. '"></a>';
+       echo '<div class="card-body">';
+       echo '<h5 class="card-title">'. $film['titre'] .'</h5>';
+       echo '</div>';
+       echo '</div>';
+       echo "<a href ='./index.php?p=modifierFilm&id=" . $film['id']. "'>Modifier</a><br>";
+       echo "<a href ='./effacerFilm.php?id=" . $film['id']. "'>Effacer</a><br>";
 }
-
-
