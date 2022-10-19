@@ -6,22 +6,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <!-- Bootstrap -->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
-    <title>Document</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+        <link href="./style_login.css" rel="stylesheet">
+        <title>Document</title>
 </head>
-<body>
-    <h1>NETFLIX</h1>
-    <form action="./loginTraitement.php" method="POST">
-    <div class="mb-3">
-        <label for="login" class="form-label">Login</label>    
-        <input type="email" name="login" id="login" class="form-control">
+<body id="login">
+    <div class="wrapper">
+        <div class="heading">
+            <h1>NETFLIX</h1>
+        </div>
+        <form action="./loginTraitement.php" method="POST">
+            <div class="mb-3">
+                <span>
+                    <i class="fa-solid fa-user"></i>
+                    <!-- <label for="login" class="form-label">Login</label>     -->
+                    <input type="email" name="login" id="login" class="form-control" placeholder="Email">
+                </span>
+            </div>
+            <div class="mb-3">
+                <span>
+                    <i class="fa-solid fa-lock"></i>
+                    <!-- <label for="password" class="form-label">Password</label>         -->
+                    <input type="password" name="password" id="password" class="form-control" placeholder="Password">
+                </span>
+            </div>
+            <button type="submit" class="btn btn-primary">Se connecter</button>
+            <a href="./inscription.php"><button class="btn btn-primary">S'inscrire</button></a>
+        </form>
     </div>
-    <div class="mb-3">
-        <label for="password" class="form-label">Password</label>        
-        <input type="password" name="password" id="password" class="form-control">
-    </div>
-    <button type="submit" class="btn btn-primary">Se connecter</button><br>
-    <a href="./inscription.php">S'inscrire</a>
-    </form>
     <?php
         if (isset ($_GET['error'])){
             // traiter les différents types d'erreur

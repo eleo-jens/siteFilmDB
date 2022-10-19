@@ -1,5 +1,7 @@
 <?php
 
+include "./connexion/connexion.php";
+
 //debug
 // var_dump ($_POST);
 // var_dump ($_FILES);
@@ -11,21 +13,6 @@ $nomFichier = $idUnique.basename($_FILES['image']['name']);
 
 if(!move_uploaded_file($_FILES['image']['tmp_name'], $uploads. "/" .$nomFichier)){
         throw new Exception("Problème d'upload");
-}
-
-// 1. Créer une connexion à la BD
-include "./connexion/db.php";
-
-try {
-        $cnx = new PDO(DBDRIVER . ':host=' . DBHOST . ';port=' . DBPORT . ';dbname=' . DBNAME . ';charset=' . DBCHARSET, DBUSER, DBPASS);
-} 
-catch (Exception $e) {
-        // jamais en production car ça montre des infos
-        // sensibles
-        echo $e->getMessage();
-
-        // il faut arreter le script quand on a attrapé une exception
-        die();
 }
 
 var_dump ($_POST);

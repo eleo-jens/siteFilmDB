@@ -1,14 +1,6 @@
 <?php
 
-include "./connexion/db.php";
-
-try{
-    $cnx = new PDO(DBDRIVER. ':host=' .DBHOST. ';port=' .DBPORT. ';dbname=' .DBNAME. ';charset='. DBCHARSET, DBUSER, DBPASS);
-}
-catch (Exception $e){
-    echo $e->getMessage();
-    die();
-}
+include "./connexion/connexion.php";
 
 $id = $_GET['id'];
 $sql = "SELECT * FROM film WHERE id = :id";

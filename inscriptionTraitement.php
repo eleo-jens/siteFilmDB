@@ -1,6 +1,6 @@
 <?php
 
-include "./connexion/db.php";
+include "./connexion/connexion.php";
 
 // var_dump($_POST);
 
@@ -15,15 +15,6 @@ $login = filter_input (INPUT_POST, 'login', FILTER_VALIDATE_EMAIL);
 
 $password = $_POST['password'];
 $repassword = $_POST['repassword'];
-
-// Connexion à la BD
-try{
-    $cnx = new PDO(DBDRIVER. ':host=' . DBHOST. ';port=' .DBPORT. ';dbname=' .DBNAME. ';charset=' . DBCHARSET, DBUSER, DBPASS);
-}
-catch (Exception $e){
-    echo $e->getMessage();
-    die();
-}
 
 // Vérifier si l'user existe déjà ou non
 

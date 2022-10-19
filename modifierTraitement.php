@@ -1,14 +1,6 @@
 <?php
 
-include "./connexion/db.php";
-
-try{
-    $cnx = new PDO(DBDRIVER. ':host=' . DBHOST. ';port=' .DBPORT. ';dbname=' .DBNAME. ';charset=' . DBCHARSET, DBUSER, DBPASS);
-}
-catch (Exception $e){
-    echo $e->getMessage();
-    die();
-}
+include "./connexion/connexion.php";
 
 $sql = "UPDATE film SET titre = :titre, duree = :duree, description = :description, dateSortie= :dateSortie WHERE film.id = :id";
 $stmt = $cnx->prepare($sql);

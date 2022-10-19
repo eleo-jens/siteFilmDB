@@ -1,7 +1,7 @@
 <?php
 // prémiere ligne du script, pour accéder à la session
 session_start();
-include "./connexion/db.php";
+include "./connexion/connexion.php";
 
 // 1. Récuperer le login $_POST['login'] et le mot de pass
 $login = $_POST['login'];
@@ -11,14 +11,6 @@ $password = $_POST['password'];
 // FAKE
 // $fakeLogin = "wad";
 // $fakePassword = "wad";
-
-try{
-    $cnx = new PDO(DBDRIVER. ':host=' . DBHOST. ';port=' .DBPORT. ';dbname=' .DBNAME. ';charset=' . DBCHARSET, DBUSER, DBPASS);
-}
-catch (Exception $e){
-    echo $e->getMessage();
-    die();
-}
 
 $sql = "SELECT * FROM user WHERE login = :login";
 $stmt = $cnx->prepare($sql);
