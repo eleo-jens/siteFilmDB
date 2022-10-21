@@ -31,7 +31,7 @@
                 </span>
             </div>
             <button type="submit" class="btn btn-primary">Se connecter</button>
-            <a href="./inscription.php"><button class="btn btn-primary">S'inscrire</button></a>
+            <button class="btn btn-primary"><a href="./inscription.php">S'inscrire</a></button>
         </form>
     </div>
     <?php
