@@ -5,9 +5,9 @@
 echo '<div id="wrapper">';
 echo '<h3>Votre panier</h3>';
 echo '<div id="panier">';
-if (isset ($_SESSION['panier'])){
-       var_dump($_SESSION['panier']);
-}
+// if (isset ($_SESSION['panier'])){
+//        var_dump($_SESSION['panier']);
+// }
 echo '</div>';
 echo '<button id="vide">Vider le panier</button>';
 echo '</div>';

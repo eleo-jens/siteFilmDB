@@ -26,11 +26,13 @@ document.querySelectorAll(".ajouter").forEach((elem) => {
                     for (const idFilm in reponse) {
                         let p = document.createElement('p');
                         p.innerHTML = "";
-                        
-                        for (const i in reponse[idFilm]) {
-                            // console.log(`${i}: ${reponse[key][i]}`);
-                            p.innerHTML += ` ${reponse[idFilm][i]}`;
-                        }
+
+                        console.log(reponse[idFilm]);
+                        // p.innerHTML += ` ${reponse[idFilm][i]}`;
+                        p.innerHTML = `Produit: ${reponse[idFilm].nom} ----`;
+                        p.innerHTML += ` Quantité: ${reponse[idFilm].quantite} ----`;
+                        p.innerHTML += ` Prix: ${reponse[idFilm].quantite * reponse[idFilm].prixUnitaire} €`;
+
                         panier.appendChild(p);
                     }
 
