@@ -72,6 +72,21 @@ p.card-text {
     color: black;
 }
 
+.card.mb-3 {
+    margin: auto;
+    max-width: 60%;
+}
+
+.card-group {
+    max-width:80%;
+    margin: auto;
+}
+
+#formHTML, #resultat, #insertForm {
+    max-width: 50%;
+    margin: auto;
+}
+
 .btn {
     width: 200px;
     /* padding: 15px 0; */

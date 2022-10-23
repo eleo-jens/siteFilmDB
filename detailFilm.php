@@ -10,8 +10,8 @@ $stmt = $cnx->prepare($sql);
 $stmt->bindValue(':id', $id);
 $stmt->execute();
 $res = $stmt->fetch(PDO::FETCH_ASSOC);
-
-echo '<div class="card mb-3" style="max-width: 840px;">';
+// style="max-width: 840px;"
+echo '<div class="card mb-3">';
 echo '<div class="row g-0">';
 echo '<div class="col-md-4">';
 echo '<img src="./img/'. $res['image'] . '" class="img-fluid rounded-start" alt="'. $res['titre'].'">';
@@ -22,7 +22,6 @@ echo '<h5 class="card-title">'. $res['titre'] .'</h5>';
 echo '<p class="card-text">'. $res['description'] .'</p>';
 echo '<p class="card-text">'. $res['dateSortie'] .'</p>';
 echo '<p class="card-text">'. $res['duree'] .' minutes</p>';
-echo '<p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>';
 
 echo '<select class="rating" data-id="'. $_GET['id']. '">';
 echo '<option value="1">Bad</option>';
@@ -33,6 +32,9 @@ echo '</select>';
 
 echo '</div>';
 echo '</div>';
+echo '</div>';
+echo '<div class="card-footer bg-transparent border-success">';
+echo '<p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>';
 echo '</div>';
 echo '</div>';
 

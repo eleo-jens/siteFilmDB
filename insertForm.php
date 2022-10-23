@@ -1,4 +1,4 @@
-<form method="POST" action="./index.php?p=insertTraitement" enctype="multipart/form-data">
+<form method="POST" action="./index.php?p=insertTraitement" enctype="multipart/form-data" id="insertForm">
     <div class="mb-3">
         <label for="title" class="form-label">Titre: </label><input type="text" name="title" id="title" maxlength="100" class="form-control">
     </div>
