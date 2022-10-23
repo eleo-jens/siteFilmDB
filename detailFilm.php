@@ -24,12 +24,12 @@ echo '<p class="card-text">'. $res['dateSortie'] .'</p>';
 echo '<p class="card-text">'. $res['duree'] .' minutes</p>';
 echo '<p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>';
 
-// echo '<select class="rating" data-id="'. $id. '">';
-// echo '<option value="1">Bad</option>';
-// echo '<option value="2">Mediocre</option>';
-// echo '<option value="3">Good</option>';
-// echo '<option value="4">Awsome</option>';
-// echo '</select>';
+echo '<select class="rating" data-id="'. $_GET['id']. '">';
+echo '<option value="1">Bad</option>';
+echo '<option value="2">Mediocre</option>';
+echo '<option value="3">Good</option>';
+echo '<option value="4">Awsome</option>';
+echo '</select>';
 
 echo '</div>';
 echo '</div>';
@@ -39,13 +39,12 @@ echo '</div>';
 ?>
 
 <body>
-  <select class="rating" data-id="<?= $id ?>">
+  <!-- <select class="rating" data-id="$id">
     <option value="1">Bad</option>
     <option value="2">Mediocre</option>
     <option value="3">Good</option>
     <option value="4">Awsome</option>
-    <!-- <option value="5">5</option> -->
-  </select>
+  </select> -->
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
   <script src="./node_modules/jquery-bar-rating/jquery.barrating.js"></script>

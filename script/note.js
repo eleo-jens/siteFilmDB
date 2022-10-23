@@ -9,8 +9,8 @@ $(function () {
 
       if (typeof event !== "undefined") {
 
-        // console.log(event.target.parentElement.previousSibling.dataset.id);
-        // console.log(event.target.dataset.ratingValue);
+        console.log(event.target.parentElement.previousSibling.dataset.id);
+        console.log(event.target.dataset.ratingValue);
 
         id = event.target.parentElement.previousSibling.dataset.id;
         value = event.target.dataset.ratingValue;
@@ -21,6 +21,7 @@ $(function () {
         xhr.onreadystatechange = (event) => {
             if (xhr.readyState == 4){
                 if (xhr.status == 200){
+                    console.log("reponse " + xhr.responseText);
                     // let reponse = JSON.parse(xhr.responseText);
                     // console.log("reponse" + reponse);
                     // let p = document.createElement('p');
