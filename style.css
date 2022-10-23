@@ -68,6 +68,10 @@ h5.card-title{
     color: black;
 }
 
+p.card-text {
+    color: black;
+}
+
 .btn {
     width: 200px;
     /* padding: 15px 0; */

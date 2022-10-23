@@ -1,9 +1,12 @@
 document.querySelectorAll(".ajouter").forEach((elem) => {
+    // quand on clique sur ajouter une quantite, met à jour le panier 
     elem.addEventListener('click', (e) => {
         updatePanier(e);
     });
 });
 
+
+// vide le panier de la session et visuellement quand on clique sur vide
 document.getElementById('vide').addEventListener('click', (e) => {
     console.log(e.target);
 
@@ -24,11 +27,15 @@ document.getElementById('vide').addEventListener('click', (e) => {
     xhr.send(null);
 });
 
-
+// lors du chargement de la page affiche le panier à jour
 document.addEventListener('DOMContentLoaded', (e) => {
     updatePanier();
 });
 
+
+// la fonction qui update le panier on lui passe l'evenement dans le cas du click et on crée la quantité, idFIlm etc. pour l'envoyer dans le formulaire
+// on envoit ces infos au serveur qui va les intégrer dans la session puis renvoyer une reponse JSON pour l'affichage
+// si c'est la cas de l'upload on ne lui envoit pas d'evenement, on appelle le serveur qui va renvoyer les infos de la session et les afficher
 function updatePanier(e) {
 
 

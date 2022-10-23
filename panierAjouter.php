@@ -1,20 +1,20 @@
 <?php
 session_start();
 
-$res = [];
+// si le panier n'existe pas déjà dans la session on le crée
+if (!isset($_SESSION['panier'])) {
+    $_SESSION['panier'] = [];
+}
 
+// si on recoit le formulaire du client js, cad si on update le panier via un click "Ajouter"
 if (!empty($_POST)) {
+
     $idFilm = $_POST['idFilm'];
     $prix = $_POST['prixFilm'];
     $titre = $_POST['titreFilm'];
     $quantite = (int) $_POST['quantite'];
     if ($quantite < 0) {
         $quantite = - ($quantite);
-    }
-
-    // si le panier n'existe pas déjà dans la session on le crée
-    if (!isset($_SESSION['panier'])) {
-        $_SESSION['panier'] = [];
     }
 
     if (!isset($_SESSION['panier'][$idFilm])) {
@@ -25,9 +25,9 @@ if (!empty($_POST)) {
             'prixUnitaire' => $prix
         ];
     } else {
-        // incrementer la quantite
+        // incrementer la quantité
         $_SESSION['panier'][$idFilm]['quantite'] += $quantite;
     }
 }
-$res = $_SESSION['panier'];
-echo json_encode($res);
+//renvoyer le panier de la session (rafraichissement de la page ou ajout d'un produit)
+echo json_encode($_SESSION['panier']);
