@@ -49,19 +49,20 @@ const afficheResultat = function(arrayFilms) {
     let ul = document.createElement("ul");
     arrayFilms.forEach((elem) => {
         let li = document.createElement("li");
-        li.innerHTML = elem.titre + ", " + elem.dateSortie + ", " + elem.duree + ", " + elem.description;
+        li.innerHTML = elem.titre + ", " + elem.dateSortie;
         li.dataset.filmId = elem.id; // on en a pas besoin mais on voit que ca existe ! 
         
-        //clickable cette option en créant un addEventListener
+        // clickable cette option en créant un addEventListener
         // li.addEventListener("click", (e) => {
         //     window.location.href = "./index.php?p=detailFilm&id=" + elem.id;
         // });
+        // ul.appendChild(li);
 
         //autre option mettre un <a> dans le <li> comme une navigation classique
         let a = document.createElement('a');
-        a.href = `./index.php?p=detailFilm&id="${elem.id}`;
-        li.appendChild(a);
-        ul.appendChild(li);
+        a.href = `./index.php?p=detailFilm&id=${elem.id}`;
+        a.appendChild(li);
+        ul.appendChild(a);
     });
     document.getElementById("resultat").appendChild(p);
     document.getElementById("resultat").appendChild(ul);
