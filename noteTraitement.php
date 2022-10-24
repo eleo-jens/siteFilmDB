@@ -5,21 +5,27 @@ session_start();
 
 $value = $_POST['value'];
 $idFilm = $_POST['id'];
-echo $idFilm;
-echo $_SESSION['loginConnecte'];
+// echo $idFilm;
+// echo $_SESSION['loginConnecte'];
+echo "La valeur ". $value ."\n";
 
+// unset($_SESSION['note']);
+
+echo ("Session['note']:");
 var_dump($_SESSION['note']);
 
 // si n'existe pas encore la crée
 if (!isset($_SESSION['note'])) {
-    $_SESSION['note'][] = $idFilm;
+    // $_SESSION['note'][] = $idFilm;
+    $_SESSION['note'] = [];
     echo ('note nexiste pas dans la session');
-    var_dump($_SESSION['note']);
+    // var_dump($_SESSION['note']);
     // $_SESSION['note'][$idFilm] = "";
 }
 
 if (!isset($_SESSION['note'][$idFilm])) {
     $_SESSION['note'][$idFilm] = $value;
+    echo ('La valeur qui est dans la session');
     var_dump($_SESSION['note'][$idFilm]);
     // insert into le tableau note
     $sql = "INSERT INTO note (id, value, idFilm, idUser) 
@@ -37,9 +43,9 @@ if (!isset($_SESSION['note'][$idFilm])) {
 else {
     $_SESSION['note'][$idFilm] = $value;
     echo $_SESSION['note'][$idFilm];
-    echo $value;
-    echo $idFilm;
-    echo $_SESSION['loginConnecte'];
+    // echo $value;
+    // echo $idFilm;
+    // echo $_SESSION['loginConnecte'];
 
     // mettre à jour la valeur dans le tableau
     $sql = "UPDATE note SET value = :value
@@ -63,11 +69,13 @@ $stmt = $cnx->prepare($sql);
 $stmt->bindValue(":idFilm", $idFilm);
 $stmt->execute();
 
-var_dump($stmt->errorInfo());
+// var_dump($stmt->errorInfo());
 $moyenne = $stmt->fetch(PDO::FETCH_ASSOC);
 
-var_dump($moyenne);
-die();
+var_dump($_SESSION['note']);
+
+var_dump($moyenne['moyenne']);
+// die();
 
 //renvoyer en json les infos de la session pour qu'on puisse charger l'info et envoyer la note moyenne du film dès l'ouverture de la page
 // echo json_encode($moyenne['moyenne']);

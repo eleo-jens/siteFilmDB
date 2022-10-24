@@ -21,13 +21,20 @@ $(function () {
         xhr.onreadystatechange = (event) => {
             if (xhr.readyState == 4){
                 if (xhr.status == 200){
-                    console.log("reponse " + xhr.responseText);
-                    // let reponse = JSON.parse(xhr.responseText);
-                    // console.log("reponse" + reponse);
-                    // let p = document.createElement('p');
-                    // p.innerHTML = xhr.responseText;
+                    let reponse = parseInt(JSON.parse(xhr.responseText));
 
-
+                    let card = document.querySelector('.card-body');
+                    let div = document.createElement('div');
+                    let p = document.createElement('p');
+                    let classAttribute = document.createAttribute('class');
+                    let idAttribute = document.createAttribute('id')
+                    classAttribute.value = "card-text";
+                    p.setAttributeNode(classAttribute);
+                    idAttribute.value = "moyenne";
+                    div.setAttributeNode(idAttribute);
+                    p.innerHTML = `La note des utilisateurs: ${reponse}`;
+                    div.appendChild(p);
+                    card.appendChild(div);
                 }
                 else console.log(`error: ${xhr.status}`);
             }

@@ -8,6 +8,16 @@ body {
     color: white;
 }
 
+form#FormInscription {
+    max-width: 50%;
+    margin: auto;
+    margin: 10% auto;
+    padding: 6%;
+    background-color: rgba(0, 0,0,0.9);
+    border-radius: 20px;
+    box-shadow:  2px 7px 17px rgb(77, 72, 72);
+}
+
 .wrapper {
     width: 35%;
     margin: 10% auto;
